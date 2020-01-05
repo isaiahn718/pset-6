@@ -61,3 +61,18 @@ const create_item = function() {
     }
     document.getElementById("input_item").value = "";
 };
+
+const remove_item = function() {
+  var removed = false;
+  for (let i = 0; i < remove_button.length; i++) {
+    remove_button[i].onclick = function() {
+        removed = true;
+        let remove_element = row[i];
+        remove_element.remove();
+        elements.splice(i, 1);
+    };
+    if (removed) {
+        break;
+    }
+  }
+}
