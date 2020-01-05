@@ -27,3 +27,14 @@ const create_item = function() {
            html_text: null,
            html_remove_button: null
        }
+
+       elements.push(to_do);
+            let index = elements.indexOf(to_do);
+
+            elements[index].htmlRow = document.createElement("tr");
+            elements[index].htmlRow.setAttribute("class", "row");
+            document.getElementById("table").append(elements[index].htmlRow);
+
+            elements[index].htmlPriorityButton = document.createElement("td");
+            elements[index].htmlPriorityButton.setAttribute("class", "priority_button");
+            elements[index].htmlPriorityButton.innerHTML = "!";
