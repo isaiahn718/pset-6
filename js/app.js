@@ -100,3 +100,52 @@ const finish_item = function() {
      }
   }
 }
+
+const prioritize_item = function() {
+  var prioritize = false;
+  for (let z = 0; z < priority_button.length; z++) {
+    priority_button[z].onclick = function () {
+      if (elements[z].priority == false) {
+        element_prioritize = row[z]
+        prioritize = true;
+        priority_button[z].style.backgroundColor = "yellow";
+        row[0].before(element_prioritize);
+        elements[z].priority = true;
+
+        const objectToMove = elements[z];
+
+        elements.splice(z, 1);
+        elements.unshift(objectToMove);
+        prioritize = true;
+      }
+      else if (elements[z].priority) {
+        element_prioritize = row[z]
+        priority_button[z].style.backgroundColor = "white";
+        row[elements.length - 1].after(element_prioritize);
+        elements[z].priority = false;
+
+        let element_move = elements[z];
+        elements.splice(z, 1);
+        elements.push(element_move);
+        prioritize = true;
+      }
+    };
+    if (prioritize) {
+      break;
+    }
+  }
+}
+
+const startup = function() {
+  remove_item();
+  finish_item();
+  prioritize_item();
+}
+
+add.onclick = create_item
+
+document.getElementById("input_item").addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    document.getElementById("add_button").click();
+  }
+});
