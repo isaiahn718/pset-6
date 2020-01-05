@@ -38,3 +38,26 @@ const create_item = function() {
             elements[index].htmlPriorityButton = document.createElement("td");
             elements[index].htmlPriorityButton.setAttribute("class", "priority_button");
             elements[index].htmlPriorityButton.innerHTML = "!";
+
+            row[index].append(elements[index].htmlPriorityButton);
+
+            elements[index].htmlText = document.createElement("td");
+            elements[index].htmlText.innerHTML = elements[index].task;
+            elements[index].htmlText.setAttribute("class", "to_do");
+
+            row[index].append(elements[index].htmlText);
+
+            elements[index].htmlCompleteButton = document.createElement("td");
+            elements[index].htmlCompleteButton.innerHTML = "&#x2713;";
+            elements[index].htmlCompleteButton.setAttribute("class", "complete_button");
+
+            row[index].append(elements[index].htmlCompleteButton);
+
+            elements[index].htmlRemoveButton = document.createElement("td");
+            elements[index].htmlRemoveButton.setAttribute("class", "remove_button");
+            elements[index].htmlRemoveButton.innerHTML = "X";
+
+            row[index].append(elements[index].htmlRemoveButton);
+    }
+    document.getElementById("input_item").value = "";
+};
