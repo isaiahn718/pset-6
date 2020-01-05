@@ -76,3 +76,27 @@ const remove_item = function() {
     }
   }
 }
+
+const finish_item = function() {
+  var finish = false;
+  for (let x = 0; x < complete_button.length; x++) {
+    complete_button[x].onclick = function() {
+       if (elements[x].complete == false) {
+         finish = true;
+         list_item[x].style.setProperty("text-decoration", "line-through");
+         list_item[x].style.backgroundColor = "#baff66";
+         complete_button[x].style.backgroundColor = "#baff66";
+         elements[x].complete = true;
+       }
+       else if (elements[x].complete == true) {
+         complete_button[x].style.backgroundColor = "white";
+         list_item[x].style.setProperty("text-decoration", "none");
+         list_item[x].style.backgroundColor = "white";
+         elements[x].complete = false;
+       }
+     };
+     if (finish) {
+       break;
+     }
+  }
+}
